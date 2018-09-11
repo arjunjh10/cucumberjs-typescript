@@ -1,0 +1,40 @@
+{
+  "editor.detectIndentation": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 120,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[handlebars]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false
+  },
+  "files.exclude": {
+    ".octopack/": true,
+    "packaged/": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.js": {
+      "when": "$(basename).ts"
+    }
+  },
+  "cucumberautocomplete.steps": [
+    "test*/**step_definitions/**/*.ts"
+  ],
+  "cucumberautocomplete.syncfeatures": "tests/features/*feature",
+  "html.format.enable": true,
+  "html.format.indentHandlebars": true,
+  "typescript.useCodeSnippetsOnMethodSuggest": true,
+  "typescript.format.enable": true,
+  "typescript.format.insertSpaceAfterConstructor": false,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+  "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+  "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

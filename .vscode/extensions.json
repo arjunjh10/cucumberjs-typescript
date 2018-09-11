@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+      "eg2.tslint",
+      "dbaeumer.vscode-eslint",
+      "pmneo.tsimporter",
+      "EditorConfig.EditorConfig",
+      "msjsdiag.debugger-for-chrome",
+      "alexkrechik.cucumberautocomplete"
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+# E2E Test Reports & generated files
+testoutput/
+node_modules/
+.cache
+dist
+
+# .vscode settings that we don't want to exclude
+!/.vscode/
+/.vscode/*
+!/.vscode/extensions.json
+!/.vscode/launch.json
+!/.vscode/settings.json

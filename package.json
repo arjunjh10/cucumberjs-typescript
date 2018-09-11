@@ -1,0 +1,62 @@
+{
+  "name": "cucumberjs-typescript-sample-project",
+  "version": "1.0.0",
+  "description": "e2e project framework to get started",
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf .cache",
+    "compile": "parcel build --target node --no-source-maps -d dist ./tests/**/*.ts",
+    "build": "npm run clean && npm run compile",
+    "test:server": "./node_modules/.bin/cucumber-js ./tests -r dist/step_definitions/*.js --fail-fast",
+    "cucumber": "./node_modules/.bin/cucumber-js ./tests",
+    "lint": "tslint -p tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjunjh10/cucumberjs-typescript"
+  },
+  "keywords": [
+    "cucumberjs",
+    "cucumberjs typescript",
+    "selenium webdriver",
+    "testing",
+    "e2e functional test automation",
+    "bdd",
+    "behavioural driven development",
+    "gherkin",
+    "example test automation project"
+  ],
+  "author": "Arjun Jhawar <arjun.jhawar@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/arjunjh10/cucumberjs-typescript/blob/master/README.md",
+  "devDependencies": {
+    "@types/chai": "^4.0.1",
+    "@types/cucumber": "4.0.4",
+    "@types/fs-extra": "^5.0.4",
+    "@types/lodash": "4.14.85",
+    "@types/make-dir": "1.0.3",
+    "@types/node": "8.10.7",
+    "@types/node-fetch": "1.6.7",
+    "@types/selenium-webdriver": "3.0.8",
+    "@types/winston": "^2.4.4",
+    "@types/yargs": "11.0.0",
+    "chromedriver": "2.41.0",
+    "dotenv-safe": "^4.0.4",
+    "fs-extra": "7.0.0",
+    "lodash": "^4.17.4",
+    "node-fetch": "2.0.0",
+    "parcel-bundler": "1.9.7",
+    "ts-node": "4.1.0",
+    "tslint": "5.9.1",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "2.6.2",
+    "winston": "2.4.0"
+  },
+  "dependencies": {
+    "chai": "^4.0.2",
+    "cucumber": "4.2.1",
+    "cucumber-html-reporter": "4.0.2",
+    "make-dir": "^1.0.0",
+    "selenium-webdriver": "3.6.0",
+    "yargs": "9.0.1"
+  }
+}

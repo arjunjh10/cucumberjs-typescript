@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug UI Tests",
+      "program": "${workspaceFolder}/node_modules/.bin/cucumber-js",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "./tests",
+        "--require-module",
+        "ts-node/register",
+        "--require",
+        "tests/**/*.ts",
+        "--profile",
+        "default",
+        "--tags",
+        "@example"
+      ],
+      "timeout": 30000,
+      "protocol": "inspector",
+      "outFiles": [
+        "${workspaceFolder}/tests/features/*.feature"
+      ],
+      "windows": {
+        "program": "C:\\dev\\repository\\src\\node_modules\\cucumber\\dist\\cucumber.js"
+      },
+      "envFile": "${workspaceFolder}/.env",
+      "sourceMaps": true,
+      "runtimeArgs": []
+    }
+  ]
+}
