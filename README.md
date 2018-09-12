@@ -18,3 +18,8 @@ The example feature uses selenium webdriver to launch tests for frontend.
 2) Add your scenario
 3) Run the feature file, it will complain about missing/pending step def.
 4) Simple copy those steps and create a new step file or add those steps to an existing file under `step_definitions`
+
+# Reporting
+For simple projects using single browsers, you can simply run the following command
+in your process once test run is complete
+`yarn generateTestReport`

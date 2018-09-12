@@ -8,7 +8,8 @@
     "build": "npm run clean && npm run compile",
     "test:server": "./node_modules/.bin/cucumber-js ./tests -r dist/step_definitions/*.js --fail-fast",
     "cucumber": "./node_modules/.bin/cucumber-js ./tests",
-    "lint": "tslint -p tests"
+    "lint": "tslint -p tests",
+    "generateTestReport": "node ./tests/support/reporter.js"
   },
   "repository": {
     "type": "git",
