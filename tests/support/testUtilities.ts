@@ -11,7 +11,7 @@ export enum Frequency {
   Fortnightly = 'Fortnightly'
 }
 
-export const createHeadlessSession = (caps: any) =>
+export const createSeleniumDriverSession = (caps: any) =>
   new seleniumWebdriver.Builder()
     .forBrowser(caps.browserName)
     .withCapabilities(caps)

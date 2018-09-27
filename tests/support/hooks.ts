@@ -10,19 +10,22 @@ import {
 // tslint:disable-next-line:no-var-requires
 const winston = require('winston');
 import {
-  createHeadlessSession,
-  saveScreenshot
+  saveScreenshot,
+  createSeleniumDriverSession
 } from './testUtilities';
 import {ScenarioResultOnError} from './customCucumberInterfaces';
 import {Session, WebDriver} from 'selenium-webdriver';
 import {determineConfig} from '../conf/configResolver';
+import {Config} from '../conf/config';
+import {taskId} from './env';
 
 let seleniumDriver: WebDriver;
 let session: Session;
 let sessionId: string;
 const failedScenariosInfo: any = {};
 export const config = determineConfig();
-export const capabilities = config[0].capabilities;
+export const currentConfig: Config = config[taskId];
+export const capabilities = currentConfig.capabilities;
 export const browserName = capabilities.browser.toString().toUpperCase();
 
 Before(async function(this: World, hookForResult: HookScenarioResult) {
@@ -38,7 +41,7 @@ Before(async function(this: World, hookForResult: HookScenarioResult) {
 
 
 BeforeAll(async () => {
-  seleniumDriver = createHeadlessSession(capabilities);
+  seleniumDriver = createSeleniumDriverSession(capabilities);
 });
 
 AfterAll(async () => {

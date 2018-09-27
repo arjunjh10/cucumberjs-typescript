@@ -1,7 +1,10 @@
 import * as yargs from 'yargs';
 const argv = yargs.argv;
+const radixValue = 10;
 
 export const configName: string = argv.config || 'headless';
 export const profileName: string = argv.profile || 'default';
-export const targetUrl: string = argv.url || 'url';
+export const targetUrl: string = argv.targetUrl || 'url';
 export const outputDir = `./testoutput/${profileName}`;
+export const testTags: string = argv.tags || '@smoke';
+export const taskId: number = parseInt(process.env.TASK_ID as string, radixValue) || 0;
