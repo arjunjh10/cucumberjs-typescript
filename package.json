@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "chai": "^4.0.2",
-    "cucumber": "4.2.1",
+    "cucumber": "5.0.1",
     "cucumber-html-reporter": "4.0.2",
     "make-dir": "^1.0.0",
     "selenium-webdriver": "3.6.0",
