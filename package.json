@@ -8,6 +8,7 @@
     "build": "npm run clean && npm run compile",
     "test:server": "./node_modules/.bin/cucumber-js ./tests -r dist/step_definitions/*.js --fail-fast",
     "cucumber": "./node_modules/.bin/cucumber-js ./tests",
+    "cucumber:parallel": "ts-node --project tests/tsconfig.json tests/scripts/cucumber-runner",
     "lint": "tslint -p tests",
     "generateTestReport": "node ./tests/support/reporter.js"
   },
@@ -41,6 +42,7 @@
     "@types/winston": "^2.4.4",
     "@types/yargs": "11.0.0",
     "chromedriver": "2.41.0",
+    "geckodriver": "1.12.2",
     "dotenv-safe": "^4.0.4",
     "fs-extra": "7.0.0",
     "lodash": "^4.17.4",
