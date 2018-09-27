@@ -1,7 +1,7 @@
 export interface Config {
   capabilities: {
-    browser: 'chrome' | 'Firefox' | 'Edge' | 'android' | 'ios' | 'Safari';
-    browserName: 'chrome' | 'Firefox' | 'Edge' | 'galaxy s8' | 'iPhone' | 'Safari';
+    browser: 'chrome' | 'firefox' | 'edge' | 'android' | 'ios' | 'safari';
+    browserName: 'chrome' | 'firefox' | 'edge' | 'galaxy s8' | 'iPhone' | 'safari';
     name?: string;
     project?: string;
     build?: string

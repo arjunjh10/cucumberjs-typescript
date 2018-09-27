@@ -27,8 +27,8 @@ const Chrome: Config = {
 
 const Safari: Config = {
   capabilities: {
-    browser: 'Safari',
-    browserName: 'Safari',
+    browser: 'safari',
+    browserName: 'safari',
     os: 'OS X',
     os_version: 'High Sierra'
   }
@@ -36,8 +36,8 @@ const Safari: Config = {
 
 const Firefox: Config = {
   capabilities: {
-    browser: 'Firefox',
-    browserName: 'Firefox',
+    browser: 'firefox',
+    browserName: 'firefox',
     os: 'OS X',
     os_version: 'High Sierra'
   }
@@ -45,8 +45,8 @@ const Firefox: Config = {
 
 const Edge: Config = {
   capabilities: {
-    browser: 'Edge',
-    browserName: 'Edge',
+    browser: 'edge',
+    browserName: 'edge',
     os: 'Windows',
     os_version: '10'
   }
@@ -99,4 +99,8 @@ export const single: Array<Config> = [
   // Firefox,
   // IPhone,
   // galaxys8
+];
+export const parallel1: Array<Config> = [
+  Chrome,
+  Firefox
 ];
