@@ -7,18 +7,24 @@ import {
   HookScenarioResult,
   World
 } from 'cucumber';
-// tslint:disable-next-line:no-var-requires
+// tslint:disable
 const winston = require('winston');
+const browserstackLocal = require('browserstack-local');
+// tslint:enable
 import {
   saveScreenshot,
-  createSeleniumDriverSession
+  createSeleniumDriverSession,
+  createSessionOnBrowserstack
 } from './testUtilities';
 import {ScenarioResultOnError} from './customCucumberInterfaces';
 import {Session, WebDriver} from 'selenium-webdriver';
 import {determineConfig} from '../conf/configResolver';
 import {Config} from '../conf/config';
-import {taskId} from './env';
+import {taskId, isLocal, browserstackUserName, browserstackAccessKey} from './env';
+import {info} from 'console';
+import {promisify} from 'util';
 
+const bsLocal = new browserstackLocal.Local();
 let seleniumDriver: WebDriver;
 let session: Session;
 let sessionId: string;
@@ -41,10 +47,33 @@ Before(async function(this: World, hookForResult: HookScenarioResult) {
 
 
 BeforeAll(async () => {
-  seleniumDriver = createSeleniumDriverSession(capabilities);
+  if (capabilities['browserstack.local']) {
+    capabilities['browserstack.localIdentifier'] = browserName;
+    await promisify(bsLocal.start.bind(bsLocal))(
+      {localIdentifier: capabilities['browserstack.localIdentifier'], key: browserstackAccessKey, verbose: 'true'});
+    info('Local session started, launching driver now');
+  } else {
+    info('Normal Session Started');
+  }
+
+  // Create new driver session per feature
+  if (isLocal()) {
+    seleniumDriver = createSeleniumDriverSession(capabilities);
+  } else {
+    capabilities['browserstack.user'] = browserstackUserName;
+    capabilities['browserstack.key'] = browserstackAccessKey;
+    info('Launching session now');
+    seleniumDriver = createSessionOnBrowserstack(capabilities);
+  }
 });
 
 AfterAll(async () => {
+  // Quit session once all the tests in a feature have run
+  if (bsLocal) {
+    await promisify(bsLocal.stop.bind(bsLocal))();
+    info('BrowserStack local session stopped.');
+  }
+
   await seleniumDriver.quit();
 });
 
