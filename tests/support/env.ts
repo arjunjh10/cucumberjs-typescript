@@ -7,7 +7,7 @@ export const profileName: string = argv.profile || 'default';
 export const targetUrl: string = argv.targetUrl || 'url';
 export const outputDir = `./testoutput/${profileName}`;
 export const testTags: string = argv.tags || '@smoke';
-export const isLocal = () => configName !== 'headless' ? true : false;
+export const isLocal = () => configName === 'headless' ? true : false;
 export const projectName: string = argv.testProjectName || 'local';
 export const buildNumber: string = argv.buildNumber || 'local';
 export const browserstackUserName: string = process.env.BROWSERSTACK_USERNAME || 'myUserName';
