@@ -3,6 +3,7 @@ testoutput/
 node_modules/
 .cache
 dist
+.env
 
 # .vscode settings that we don't want to exclude
 !/.vscode/

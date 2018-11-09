@@ -1,11 +1,23 @@
 import {Config} from './config';
 import {merge} from 'lodash';
+import {projectName, buildNumber} from '../support/env';
 
 const commonConfigProps = {
   capabilities: {
-    name: 'My test name',
-    resolution: '1280x1024',
-    failure_url: undefined
+    'server': 'http://hub-cloud.browserstack.com/wd/hub',
+    'name': 'My test name',
+    'resolution': '1280x1024',
+    'project': `${projectName}`,
+    'build': `${buildNumber}`,
+    'browserstack.debug': true,
+    'browserstack.networkLogs': true,
+    'failure_url': undefined
+  }
+};
+
+const sessionSpecific = {
+  capabilities: {
+    'browserstack.local': true
   }
 };
 
@@ -13,6 +25,13 @@ const commonConfigProps = {
 const browserResolution = {
   capabilities: {
     resolution: '1280x1024'
+  }
+};
+
+// Only pass the property to devices
+const deviceProperty = {
+  capabilities: {
+    realMobile: 'true'
   }
 };
 
@@ -84,10 +103,10 @@ const headlessConfig: Config = {
 // Merging commonConfigProps capabilities to each browser/device config
 merge(Chrome, commonConfigProps, browserResolution);
 merge(Safari, commonConfigProps, browserResolution);
-merge(Firefox, commonConfigProps, browserResolution);
-merge(Edge, commonConfigProps, browserResolution);
-merge(IPhone, commonConfigProps);
-merge(galaxyS8, commonConfigProps);
+merge(Firefox, commonConfigProps, browserResolution, sessionSpecific);
+merge(Edge, commonConfigProps, browserResolution, sessionSpecific);
+merge(IPhone, commonConfigProps, deviceProperty);
+merge(galaxyS8, commonConfigProps, deviceProperty);
 
 export const headless: Array<Config> = [
   headlessConfig
@@ -100,7 +119,13 @@ export const single: Array<Config> = [
   // IPhone,
   // galaxys8
 ];
-export const parallel1: Array<Config> = [
+export const parallel: Array<Config> = [
   Chrome,
-  Firefox
+  Firefox,
+  Safari
+];
+
+export const mobile: Array<Config> = [
+  IPhone,
+  galaxyS8
 ];

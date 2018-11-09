@@ -17,6 +17,12 @@ export const createSeleniumDriverSession = (caps: any) =>
     .withCapabilities(caps)
     .build();
 
+export const createSessionOnBrowserstack = (caps: any) =>
+  new seleniumWebdriver.Builder()
+    .usingServer(caps.server)
+    .withCapabilities(caps)
+    .build();
+
 export const saveScreenshot = async (data: any, name: string) => {
   if (name === '' || name === null) {
     throw new Error('Unable to save the screenshot, the test name not defined');
