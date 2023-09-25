@@ -1,7 +1,7 @@
 import {WebDriver, ByHash} from 'selenium-webdriver';
 import {SeleniumWebdriverWrapper} from '../support/seleniumWebdriverWrapper';
 
-// COmment
+// COmments
 export class SearchPageObject extends SeleniumWebdriverWrapper {
   searchBox: ByHash = {css: '#lst-ib'};
   searchButton: ByHash = {name: 'btnK'};
