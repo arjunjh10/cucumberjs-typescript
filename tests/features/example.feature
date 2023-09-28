@@ -1,4 +1,4 @@
-@examples
+@examples1
 Feature: My Example
   As a tester I wish to demonstrate that the framework works locally.
 
