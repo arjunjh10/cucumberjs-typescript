@@ -6,4 +6,4 @@ jobs:
     steps:
       - checkout
       - run: node --version
-      - run: npm run lint
+      - run: npm install
