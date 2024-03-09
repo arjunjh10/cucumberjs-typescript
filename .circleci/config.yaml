@@ -1,0 +1,11 @@
+jobs:
+  build_and_test: # this can be any name you choose
+    executor: node/default # use the default executor defined within the orb
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn install
+          name: Install Dependencies
+      
