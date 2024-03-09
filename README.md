@@ -3,7 +3,7 @@ Setup automated test framework using CucumberJS library writing tests in Typescr
 The example feature uses selenium webdriver to launch tests for frontend.
 
 
-# Get Started
+# Get Starteds
 1) Ensure you have node installed globally on your machine.
 2) Ensure you have yarn installed globally on your machine.
 3) Ensure you have chrome browser installed and its path defined (both windows and mac users)
