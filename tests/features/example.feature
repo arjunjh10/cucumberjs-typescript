@@ -1,4 +1,4 @@
-@example
+@example @circleci
 Feature: My Example
   As a tester I wish to demonstrate that the framework works locally.
 
